@@ -14,4 +14,5 @@ class ElementDiv1 implements Listeners {
     }
   };
 }
+
 export default new ElementDiv1("div1");

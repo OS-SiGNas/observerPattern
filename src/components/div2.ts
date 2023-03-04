@@ -10,7 +10,7 @@ class ElementDiv2 implements Listeners {
     if (this.element !== null) {
       if (typeof text === "string") {
         console.log(text.length);
-        this.element.innerHTML = String(text.length);
+        this.element.innerHTML = `${String(text.length)} characters`;
       }
     }
   };

@@ -1,6 +1,6 @@
 import Observers from "./abstractObservers.js";
 
-export default class TextObservers extends Observers {
+class TextObservers extends Observers {
   #state: string;
   constructor() {
     super();
@@ -12,3 +12,5 @@ export default class TextObservers extends Observers {
     this.notify(this.#state);
   };
 }
+
+export default new TextObservers();
