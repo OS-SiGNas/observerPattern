@@ -1,0 +1,15 @@
+{
+  "name": "observerpattern",
+  "version": "1.0.0",
+  "description": "Observer Pattern example with typescript",
+  "main": "index.js",
+  "bin": {
+    "observerpattern": "bin/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Alfredo Manrique",
+  "license": "MIT"
+}
