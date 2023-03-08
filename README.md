@@ -14,13 +14,14 @@
 - **bin**: ouput folder with index.js
 - **src**: directory of source typescript with index.ts
   - **index.ts**: main file
-  - **components**: class and instances of components
+  - **ClassObserver.ts**: Class Observer and interface Listeners
+  - **input_components**: Folder with inputs DOM elements
+    - **viewText.ts**: render with elements inputs textarea and elements listeners
+    - **viewList.ts**: render with element list and elements listeners
+    - **viewObject.ts**: render with element plain string from object and elements listeners
+  - **listeners_components**: folder of class and instances of DOM elements listeners
     - **div1.ts**: div component -> textObservers subscriber
     - **div3.ts**: div component -> textObservers subscriber
     - **div2.ts**: div component -> textObservers subscriber
     - **div4.ts**: div component -> listObservers subscriber
     - **list1.ts**: list component -> listObservers subscriber
-  - **shared**: directory for shared class
-    - **abstractObservers.ts**: abstract class for all Oservers
-    - **textObservers.ts**: class for Text Observers
-    - **listObservers.ts**: class for List Observers

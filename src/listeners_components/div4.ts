@@ -1,4 +1,4 @@
-import type { Listeners } from "../shared/abstractObservers";
+import type { Listeners } from "../ClassObservers";
 
 class List1 implements Listeners {
   #element: HTMLElement | null;

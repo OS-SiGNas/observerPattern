@@ -1,6 +1,6 @@
-import type { Listeners } from "../shared/abstractObservers";
+import type { Listeners } from "../ClassObservers";
 
-class ElementDiv1 implements Listeners {
+class ElementDiv2 implements Listeners {
   element: HTMLElement | null;
   constructor(element: string) {
     this.element = document.getElementById(element);
@@ -9,10 +9,11 @@ class ElementDiv1 implements Listeners {
   render = <T>(text: T): void => {
     if (this.element !== null) {
       if (typeof text === "string") {
-        this.element.innerHTML = text;
+        console.log(text.length);
+        this.element.innerHTML = `${String(text.length)} characters`;
       }
     }
   };
 }
 
-export default new ElementDiv1("div1");
+export default new ElementDiv2("div2");

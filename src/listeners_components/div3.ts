@@ -1,4 +1,4 @@
-import type { Listeners } from "../shared/abstractObservers";
+import type { Listeners } from "../ClassObservers";
 
 class ElementDiv3 implements Listeners {
   element: HTMLElement | null;

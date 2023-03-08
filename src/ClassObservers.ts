@@ -2,9 +2,11 @@ export interface Listeners {
   render: <T>(arg: T) => void;
 }
 
-export default abstract class Observers {
+export default class Observer<U> {
   #listeners: Array<Listeners>;
-  constructor() {
+  #state: U;
+  constructor(state: U) {
+    this.#state = state;
     this.#listeners = [];
   }
 
@@ -22,7 +24,18 @@ export default abstract class Observers {
     this.#listeners = this.#listeners.filter((element) => element !== sub);
   };
 
-  get listeners() {
+  setState = (newState: U): void => {
+    if (this.#state instanceof Array && newState instanceof Array) {
+      this.#state = [...this.#state, ...newState] as U;
+    } else if (this.#state instanceof Object) {
+      this.#state = { ...this.#state, ...newState };
+    } else {
+      this.#state = newState;
+    }
+    this.notify(this.#state);
+  };
+
+  get listeners(): Array<Listeners> {
     return this.#listeners;
   }
 }
