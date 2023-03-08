@@ -36,14 +36,14 @@ const myView ( ) => {
 ```
 // define handler for callback
 const handleChange = ({ target }: Event): void => {
-  textObservers.setState((target as HTMLInputElement)?.value);
+  myObserver.setState((target as HTMLInputElement)?.value);
 };
 
 // define eventListener
 const text = document.getElementById("text");
 text !== null
   ? text.addEventListener("input", handleChange)
-  : console.log("text id is null");
+  : console.error("text id is null");
 ```
 
 ## **tree**:
