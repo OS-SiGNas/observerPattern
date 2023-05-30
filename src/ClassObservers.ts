@@ -11,9 +11,7 @@ export default class Observer<U> {
   }
 
   notify = <T>(action: T): void => {
-    this.#listeners.forEach((element) => {
-      element.render(action);
-    });
+    this.#listeners.forEach((element) => element.render(action));
   };
 
   subscribe = (listener: Listeners): void => {
@@ -30,6 +28,7 @@ export default class Observer<U> {
     } else if (this.#state instanceof Object) {
       this.#state = { ...this.#state, ...newState };
     } else {
+      /** if this.#state is equal primitive */
       this.#state = newState;
     }
     this.notify(this.#state);

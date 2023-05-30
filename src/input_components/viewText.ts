@@ -17,7 +17,7 @@ export const viewText = (): void => {
   const text = document.getElementById("text");
   text !== null
     ? text.addEventListener("input", handleChange)
-    : console.log("text id is null");
+    : console.error('id "text" is null');
 
   /*
   textObservers.unsubscribe(div1);
