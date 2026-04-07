@@ -1,16 +1,18 @@
 {
   "name": "observerpattern",
   "version": "1.0.0",
+  "type": "module",
   "description": "Observer Pattern example with typescript",
   "main": "index.js",
-  "bin": {
-    "observerpattern": "bin/index.js"
-  },
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w && liveserver"
+    "dev": "tsc -w"
   },
   "keywords": [],
   "author": "Alfredo Manrique",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2"
+  }
 }
