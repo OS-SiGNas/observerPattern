@@ -14,33 +14,20 @@
 1 - Create your components that will listen for changes by implementing the Listeners interface.
 
 ```
-import type { Listeners } from "../ClassObservers"
-class myComponentListener implement Listeners {}
+import type { Subscriber } from "../observable.ts"
+class myComponentListener implement Subscriber {}
 ```
 
-2 - create your view input component
-
-```
-const myView ( ) => {
-  // make a new instance at class Observer and inicialize any state
-  const myObserver = new Observer(initialState)
-  // register all your listeners components myObserver.subscribe(...);
-  myObserver.subscribe(element1);
-  myObserver.subscribe(element2);
-  myObserver.subscribe(element3);
-  }
-```
-
-3 - create your handlers, eventListeners, and use the setState method for looks changes
+2 - create your handlers, eventListeners, and use the setter and getter state for looks changes
 
 ```
 // define handler for callback
 const handleChange = ({ target }: Event): void => {
-  myObserver.setState((target as HTMLInputElement)?.value);
+  myObserver.state = target as HTMLInputElement)?.value;
 };
 
 // define eventListener
-const text = document.getElementById("text");
+const text = document.querySelector("#text");
 text !== null
   ? text.addEventListener("input", handleChange)
   : console.error("text id is null");
@@ -48,17 +35,12 @@ text !== null
 
 ## **tree**:
 
-- **bin**: ouput folder with index.js
+- **dist**: ouput folder with index.js
 - **src**: directory of source typescript with index.ts
   - **index.ts**: main file
-  - **ClassObserver.ts**: Class Observer and interface Listeners
+  - **observable.ts**: Class Observer and interface Listeners
   - **input_components**: Folder with inputs DOM elements
-    - **viewText.ts**: render with elements inputs textarea and elements listeners
-    - **viewList.ts**: render with element list and elements listeners
-    - **viewObject.ts**: render with element plain string from object and elements listeners
-  - **listeners_components**: folder of class and instances of DOM elements listeners
-    - **div1.ts**: div component -> textObservers subscriber
-    - **div3.ts**: div component -> textObservers subscriber
-    - **div2.ts**: div component -> textObservers subscriber
-    - **div4.ts**: div component -> listObservers subscriber
-    - **list1.ts**: list component -> listObservers subscriber
+    - **viewText.ts**: render with elements inputs textarea and elements subscribers
+    - **viewList.ts**: render with element list and elements subscribers
+    - **viewObject.ts**: render with element plain string from object and elements subscribers
+  - **subscribers**: folder of class and instances of DOM elements subscribers
