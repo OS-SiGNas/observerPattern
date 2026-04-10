@@ -1,17 +1,17 @@
-import { Observer } from "../observer.js";
-import { $ } from "../util.js";
-import div5 from "../subscribers/div5.js";
+import { Observable } from "../observable.js";
+import { $ } from "../selector.js";
+import { ObjectInput } from "../subscribers/objectInput.js";
 
 type State = { name: string; lastName: string };
 
-export const viewObject = (o: Observer<State>): void => {
-  o.subscribe(div5);
+export const viewObject = (o: Observable<State>): void => {
+  o.subscribe(ObjectInput());
 
   const handle: EventListenerOrEventListenerObject = (event) => {
-    const { name, value } = event.target as HTMLInputElement;
+    const { name, value } = event.currentTarget as HTMLInputElement;
     o.state = { ...o.state, [name]: value } as State;
   };
 
-  $<HTMLInputElement>("#name").addEventListener("change", handle);
-  $<HTMLInputElement>("#lastName").addEventListener("change", handle);
+  $("#name").addEventListener("change", handle);
+  $("#lastName").addEventListener("change", handle);
 };

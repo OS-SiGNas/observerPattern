@@ -1,9 +1,8 @@
-import { $ } from "../util.js";
-import type { Subscriber } from "../observer.js";
+import { $ } from "../selector.js";
+import type { Subscriber } from "../observable.js";
 
-class ElementDiv3 implements Subscriber {
-  readonly #element = $<HTMLElement>("#div3");
-
+export class HungryChicken implements Subscriber {
+  readonly #element = $<HTMLElement>("#hungry-chicken");
   render = <T>(text: T): void => {
     if (typeof text === "string") {
       this.#element.innerHTML = text.includes("chicken")
@@ -12,5 +11,3 @@ class ElementDiv3 implements Subscriber {
     }
   };
 }
-
-export default new ElementDiv3();

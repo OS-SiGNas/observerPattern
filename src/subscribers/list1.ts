@@ -1,16 +1,10 @@
-import { $ } from "../util.js";
-import type { Subscriber } from "../observer.js";
+import { $ } from "../selector.js";
+import type { Subscriber } from "../observable.js";
 
-class List1 implements Subscriber {
+export class ListItems implements Subscriber {
   #element = $<HTMLElement>("ul");
-
-  render = <T>(items: T) => {
-    if (items instanceof Array) {
-      this.#element.innerHTML = items
-        .map((item) => `<li>${item}</li>`)
-        .join("");
-    }
+  public readonly render = <T>(items: T) => {
+    if (!(items instanceof Array)) return;
+    this.#element.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
   };
 }
-
-export default new List1();

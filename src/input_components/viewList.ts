@@ -1,13 +1,24 @@
-import { Observer } from "../observer.js";
-import { $ } from "../util.js";
-import list1 from "../subscribers/list1.js";
-import div4 from "../subscribers/div4.js";
+import { Observable } from "../observable.js";
+import { $ } from "../selector.js";
+import { ListItems } from "../subscribers/list1.js";
+import { NumberElementList } from "../subscribers/numberElementList.js";
 
-export const viewList = (o: Observer<string[]>): void => {
-  o.subscribe(list1).subscribe(div4);
+export const viewList = (o: Observable<string[]>): void => {
+  o.subscribe(new ListItems());
+  o.subscribe(new NumberElementList());
 
-  $<HTMLButtonElement>("#buttonList1").addEventListener("click", () => {
-    const input = $<HTMLInputElement>("#inputList1");
+  const input = $<HTMLInputElement>("#inputList1");
+  const button = $<HTMLButtonElement>("#buttonList1");
+
+  const handler = () => {
+    if (input.value.length === 0) return;
     o.state = [...o.state, input.value];
+    input.value = "";
+  };
+
+  button.addEventListener("click", handler);
+  input.addEventListener("keydown", ({ key }) => {
+    if (key !== "Enter") return;
+    return handler();
   });
 };

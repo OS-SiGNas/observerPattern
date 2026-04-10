@@ -1,15 +1,17 @@
-import { $ } from "../util.js";
-import div1 from "../subscribers/div1.js";
-import div2 from "../subscribers/div2.js";
-import div3 from "../subscribers/div3.js";
+import { $ } from "../selector.js";
+import { OutputTextArea } from "../subscribers/output-textarea.js";
+import { CharacterCounter } from "../subscribers/character-counter.js";
+import { HungryChicken } from "../subscribers/chicken.js";
 
-import type { Observer } from "../observer.js";
+import type { Observable } from "../observable.js";
 
-export const viewText = (o: Observer<string>): void => {
-  o.subscribe(div1).subscribe(div2).subscribe(div3);
+export const viewText = (o: Observable<string>): void => {
+  o.subscribe(new OutputTextArea());
+  o.subscribe(CharacterCounter());
+  o.subscribe(new HungryChicken());
 
-  $("textarea").addEventListener("input", ({ target }) => {
-    if (target instanceof HTMLTextAreaElement) o.state = target.value;
-    else return;
+  $("#input-textarea").addEventListener("input", ({ target }) => {
+    if (!(target instanceof HTMLTextAreaElement)) return;
+    o.state = target.value;
   });
 };
