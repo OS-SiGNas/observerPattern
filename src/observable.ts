@@ -11,14 +11,12 @@ export class Observable<State> {
     this.#state = state;
   }
 
-  /**
-   * @getter state value */
+  /** @getter return current state. */
   get state(): State {
     return this.#state;
   }
 
-  /**
-   * @setter state value and notify all subscribers */
+  /** @setter When the new status is established, subscribers will be notified. */
   set state(value: State) {
     this.#state = value;
     this.#notify();
