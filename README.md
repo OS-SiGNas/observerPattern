@@ -13,14 +13,14 @@
 
 1 - Create your components that will listen for changes by implementing the Listeners interface.
 
-```
+```typescript
 import type { Subscriber } from "../observable.ts"
 class myComponentListener implement Subscriber {}
 ```
 
 2 - create your handlers, eventListeners, and use the setter and getter state for looks changes
 
-```
+```typescript
 // define handler for callback
 const handleChange = ({ target }: Event): void => {
   myObserver.state = target as HTMLInputElement)?.value;
