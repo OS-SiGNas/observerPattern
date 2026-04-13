@@ -1,8 +1,9 @@
 import { $ } from "../selector.js";
 import type { Subscriber } from "../observable.js";
 
-export const ObjectInput = (): Subscriber => {
-  const element = $<HTMLDivElement>("#objectInput");
+export const ObjectStringOutput = (): Subscriber => {
+  const element = $<HTMLDivElement>("#objectStringOutput");
+
   return {
     render: <S>(state: S): void => {
       if (!(state instanceof Object)) return;
