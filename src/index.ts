@@ -3,6 +3,8 @@ import { Observable } from "./observable.js";
 import { viewText } from "./input_components/viewText.js";
 import { viewList } from "./input_components/viewList.js";
 import { viewObject } from "./input_components/viewObject.js";
+import { viewGpsLocation } from "./viewGpsLocation.js"
+import { $GeoLocation } from "./subscribers/geoLocation.js";
 
 import { OutputTextArea } from "./subscribers/output-textarea.js";
 import { CharacterCounter } from "./subscribers/character-counter.js";
@@ -27,3 +29,5 @@ viewList(
 viewObject(
   new Observable({ name: "", lastName: "" }).subscribe(ObjectStringOutput()),
 );
+
+viewGpsLocation(new Observable(null).subscribe(new $GeoLocation()))
