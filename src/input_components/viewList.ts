@@ -1,5 +1,5 @@
 import { Observable } from "../observable.js";
-import { $ } from "../selector.js";
+import { $ } from "../utils/selector.js";
 
 export const viewList = (o: Observable<string[]>): void => {
   const input = $<HTMLInputElement>("#inputList1");

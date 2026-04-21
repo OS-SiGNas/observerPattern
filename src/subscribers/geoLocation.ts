@@ -1,4 +1,4 @@
-import { $ } from "../selector.js"
+import { $ } from "../utils/selector.js"
 import type { Subscriber } from "../observable.js";
 
 export class $GeoLocation implements Subscriber {

@@ -29,7 +29,7 @@ export class Observable<State> {
 
   public readonly subscribe = (sub: Subscriber): this => {
     this.#subscribers.add(sub);
-    sub.render(this.#state);
+    /*if (this.#state !== null || this.#state !== undefined) */sub.render(this.#state);
     return this;
   };
 

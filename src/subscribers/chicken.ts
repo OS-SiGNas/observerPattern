@@ -1,7 +1,7 @@
-import { $ } from "../selector.js";
+import { $ } from "../utils/selector.js";
 import type { Subscriber } from "../observable.js";
 
-export class HungryChicken implements Subscriber {
+export class $HungryChicken implements Subscriber {
   readonly #element = $<HTMLElement>("#hungry-chicken");
   render = <T>(text: T): void => {
     if (typeof text === "string") {

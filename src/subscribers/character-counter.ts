@@ -1,7 +1,7 @@
-import { $ } from "../selector.js";
+import { $ } from "../utils/selector.js";
 import type { Subscriber } from "../observable.js";
 
-export const CharacterCounter = (): Subscriber => {
+export const $CharacterCounter = (): Subscriber => {
   const _element = $<HTMLElement>("#characters-counter");
 
   return {

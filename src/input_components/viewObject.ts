@@ -1,5 +1,5 @@
 import { Observable } from "../observable.js";
-import { $ } from "../selector.js";
+import { $ } from "../utils/selector.js";
 
 export type StateObject = { name: string; lastName: string };
 

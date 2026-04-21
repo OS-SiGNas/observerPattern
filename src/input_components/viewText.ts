@@ -1,4 +1,4 @@
-import { $ } from "../selector.js";
+import { $ } from "../utils/selector.js";
 import type { Observable } from "../observable.js";
 
 export const viewText = (o: Observable<string>): void => {

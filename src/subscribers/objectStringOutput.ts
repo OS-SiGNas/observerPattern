@@ -1,7 +1,7 @@
-import { $ } from "../selector.js";
+import { $ } from "../utils/selector.js";
 import type { Subscriber } from "../observable.js";
 
-export const ObjectStringOutput = (): Subscriber => {
+export const $ObjectStringOutput = (): Subscriber => {
   const element = $<HTMLDivElement>("#objectStringOutput");
 
   return {
